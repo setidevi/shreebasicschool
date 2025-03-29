@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Seti Devi Basic School - Balephi-2, Naubise</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #cc0000;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ffe6e6;
+            --dark-color: #333;
+            --text-color: #444;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'EB Garamond', serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), #1a252f);
+            color: var(--primary-color);
+            padding: 25px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            object-fit: cover;
+        }
+        
+        .school-name {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+        }
+        
+        .school-motto {
+            font-style: italic;
+            color: #ff9999;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .school-address {
+            font-size: 1.1rem;
+            color: #ff9999;
+            font-weight: 500;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 30px auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .main-content {
+            flex: 3;
+            padding: 25px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            padding: 25px;
+            background-color: var(--light-gray);
+            border-left: 1px solid #eee;
+        }
+        
+        .profile-box {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .profile-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .profile-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .profile-info p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        
+        .profile-info .position {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin: 25px 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+            font-weight: 600;
+            font-size: 1.8rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .notice-board {
+            background-color: var(--light-color);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+        
+        .notice-board h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .notice-board h3 i {
+            margin-right: 10px;
+        }
+        
+        .notice-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--primary-color);
+        }
+        
+        .notice-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .notice-date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .notice-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-item {
+            height: 180px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .teachers-list {
+            margin-top: 30px;
+        }
+        
+        .teacher {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s;
+        }
+        
+        .teacher:hover {
+            background-color: var(--light-color);
+        }
+        
+        .teacher:last-child {
+            border-bottom: none;
+        }
+        
+        .teacher-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .teacher-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .teacher-info .subject {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .teacher-info .qualification {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        
+        .teacher-info .contact {
+            margin-top: 5px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .contact-dropdown {
+            margin-bottom: 25px;
+        }
+        
+        .dropdown-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .dropdown-content {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .contact-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-item i {
+            color: var(--primary-color);
+            margin-right: 12px;
+            margin-top: 3px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-text strong {
+            color: var(--dark-color);
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .admission-form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .admission-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .admission-form h3 i {
+            margin-right: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(204,0,0,0.1);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .submit-btn i {
+            margin-right: 8px;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .quick-links {
+            margin-bottom: 25px;
+        }
+        
+        .quick-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            background-color: white;
+            border-radius: 6px;
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .quick-link i {
+            color: var(--primary-color);
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .quick-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .quick-link:hover i {
+            color: white;
+        }
+        
+        .school-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .feature-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), #1a252f);
+            color: #ff9999;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ff9999;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,153,153,0.2);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .school-logo {
+                position: static;
+                transform: none;
+                margin-bottom: 15px;
+            }
+            
+            header {
+                padding: 20px;
+            }
+            
+            .school-name {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                border-left: none;
+                border-top: 1px solid #eee;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .school-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 1.8rem;
+            }
+            
+            .school-address, .school-motto {
+                font-size: 1rem;
+            }
+            
+            .profile-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .teacher {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .teacher-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="file:///C:/Users/DELL/Downloads/Learn,%20Grow,%20Succeed%20(2).png" alt="School Logo" class="school-logo">
+        <h1 class="school-name">Shree Seti Devi Basic School</h1>
+        <p class="school-motto">"Quality Education for Brighter Future"</p>
+        <p class="school-address">Balephi-2, Naubise, Dhading, Nepal</p>
+    </header>
+    
+    <div class="container">
+        <main class="main-content">
+            <section class="notice-board">
+                <h3><i class="fas fa-bullhorn"></i> Notice Board</h3>
+                <div class="notice-item">
+                    <div class="notice-date">Baisakh 02, 2081</div>
+                    <div class="notice-title">Admission Open for New Session 2081</div>
+                    <p>Admission for classes ECD to 8 is now open. Please visit school office with required documents.</p>
+                </div>
+                <div class="notice-item">
+                    <div class="notice-date">Chaitra 30, 2080</div>
+                    <div class="notice-title">Annual Examination Schedule</div>
+                    <p>Final term exams will begin from jestha07, 2081. Detailed schedule available at office.</p>
+                </div>
+                <div class="notice-item">
+                    <div class="notice-date">Chaitra 25, 2080</div>
+                    <div class="notice-title">Vacation Notice</div>
+                    <p>School will remain closed for Dashain from chaitra 15 to 25, 2081.</p>
+                </div>
+            </section>
+            
+            <section class="photo-gallery">
+                <h2>Photo Gallery</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/481357150_1184289939797136_353188909620089995_n%20(1).jpg" alt="School Building">
+                        <div class="gallery-caption">Our School Building</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/475927867_480943005066419_2861819337198998650_n.jpg" alt="Annual Function">
+                        <div class="gallery-caption">Annual Function 2080</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/473268842_1153244059568391_349177710178424411_n.jpg" alt="Sports Day">
+                        <div class="gallery-caption">Sports Day Competition</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/473246100_1152575539635243_7334064106863816357_n.jpg" alt="Classroom">
+                        <div class="gallery-caption"> Classroom</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/download.jpg">https://via.placeholder.com/600x400?text=Library" alt="Library">
+                        <div class="gallery-caption">School Library</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/480161119_1174206654138798_2513304349558480834_n.jpg" alt="Students">
+                        <div class="gallery-caption">Our Bright Students</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="teachers-list">
+                <h2>Our Dedicated Teachers</h2>
+                <div class="teacher">
+                    <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/477111642_2917806968375522_3229894486410310660_n.jpg" alt="Teacher" class="teacher-img">
+                    <div class="teacher-info">
+                        <h4>Shanta Timalsina</h4>
+                        <p class="subject">Nepali Teacher</p>
+                        <p class="qualification">................ (10 years experience)</p>
+                        <p class="contact"><i class="fas fa-phone"></i> 9841xxxxxx | <i class="fas fa-envelope"></i> shanta@setidevi.edu.np</p>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/471790740_122202260300190760_1963036252054093053_n.jpg" alt="Teacher" class="teacher-img">
+                    <div class="teacher-info">
+                        <h4>Pabitra B>K</h4>
+                        <p class="subject">local Teacher</p>
+                        <p class="qualification"> B.Ed., Kathmandu University (8 years experience)</p>
+                        <p class="contact"><i class="fas fa-phone"></i> 9842xxxxxx | <i class="fas fa-envelope"></i> sita.pandey@setidevi.edu.np</p>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/475777342_1644301669794613_1247730240946771778_n.jpg" alt="Teacher" class="teacher-img">
+                    <div class="teacher-info">
+                        <h4>Kamala Nepal </h4>
+                        <p class="subject">Child Development Teacher</p>
+                        <p class="qualification">B.Ed., Tribhuvan University (12 years experience)</p>
+                        <p class="contact"><i class="fas fa-phone"></i> 9843xxxxxx | <i class="fas fa-envelope"></i> hari.thapa@setidevi.edu.np</p>
+                    </div>
+                </div>
+                <div class="teacher">
+                    <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/75196255_2496242167321252_8994448274228248576_n.jpg" alt="Teacher" class="teacher-img">
+                    <div class="teacher-info">
+                        <h4>jankuka Paudel</h4>
+                        <p class="subject">English Teacher</p>
+                        <p class="qualification"> B.Ed., Tribhuvan University (9 years experience)</p>
+                        <p class="contact"><i class="fas fa-phone"></i> 9844xxxxxx | <i class="fas fa-envelope"></i> gita.shrestha@setidevi.edu.np</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <aside class="sidebar">
+            <section class="profile-box principal-box">
+                <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/119261273_176235227397856_1904266918830925464_n.jpg" alt="Principal" class="profile-img">
+                <div class="profile-info">
+                    <h3>Principal</h3>
+                    <p class="position">Mr. Khika Prasad Nepal</p>
+                    <p><i class="fas fa-graduation-cap"></i> ........</p>
+                    <p><i class="fas fa-briefcase"></i> 35 years experience</p>
+                    <p><i class="fas fa-envelope"></i> principal@setidevi.edu.np</p>
+                    <p><i class="fas fa-phone"></i> 9843374271</p>
+                </div>
+            </section>
+            
+            <section class="profile-box vice-principal-box">
+                <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/472877770_1248545792899154_775269137261843099_n.jpg" alt="Vice Principal" class="profile-img">
+                <div class="profile-info">
+                    <h3>Vice Principal</h3>
+                    <p class="position">Ganga Thapa</p>
+                    <p><i class="fas fa-graduation-cap"></i> M.A., B.Ed., Tribhuvan University</p>
+                    <p><i class="fas fa-briefcase"></i> 12 years experience</p>
+                    <p><i class="fas fa-envelope"></i> viceprincipal@setidevi.edu.np</p>
+                    <p><i class="fas fa-phone"></i> 9846xxxxxx</p>
+                </div>
+            </section>
+            
+            <section class="profile-box information-officer-box">
+                <img src="file:///C:/Users/DELL/Desktop/New%20folder/New%20folder/484326727_1360037485189164_959781798910769445_n.jpg" alt="Information Officer" class="profile-img">
+                <div class="profile-info">
+                    <h3>Information Officer</h3>
+                    <p class="position">Amrit Majhi</p>
+                    <p><i class="fas fa-graduation-cap"></i> B.ed., Jalbire valley Campus</p>
+                    <p><i class="fas fa-briefcase"></i> 7 years experience</p>
+                    <p><i class="fas fa-envelope"></i> majhiamrit80@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 9861212731</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Balephi-2, Naubise</p>
+                </div>
+            </section>
+            
+            <section class="contact-dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown()">
+                    <i class="fas fa-address-book"></i> Contact Information
+                    <span id="dropdown-arrow">▼</span>
+                </button>
+                <div class="dropdown-content" id="dropdown-content">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-text">
+                            <strong>Address</strong>
+                            Shree Seti Devi Basic School<br>
+                            Balephi-2, Naubise, Nepal
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-text">
+                            <strong>Phone</strong>
+                            +977-9843374271 (Office)<br>
+                            9843374271 (Principal)
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            setidevibs@gmail.com<br>
+                            setidevibs@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div class="contact-text">
+                            <strong>Website</strong>
+                            www.shreesetidevi.edu.np
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-text">
+                            <strong>Office Hours</strong>
+                            9:00 AM - 4:00 PM (Sunday-Friday)
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="quick-links">
+                <h2>Quick Links</h2>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-calendar-alt"></i> Academic Calendar
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-book"></i> School Rules
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-file-download"></i> Download Admission Form
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-chart-bar"></i> Exam Results
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-images"></i> Photo Gallery
+                </a>
+                <a href="#" class="quick-link">
+                    <i class="fas fa-newspaper"></i> Latest News
+                </a>
+            </section>
+            
+            <section class="school-features">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="feature-title">Smart Classes</div>
+                    <p>Digital learning facilities</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="feature-title">Library</div>
+                    <p>3000+ books collection</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="feature-title">Sports</div>
+                    <p>Football, volleyball & more</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <div class="feature-title">Transportation</div>
+                    <p>School bus facility</p>
+                </div>
+            </section>
+        </aside>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About School</h3>
+                <p>Established in 2047 B.S., Shree Seti Devi Basic School is committed to providing quality education in Balephi-2, Naubise area with modern facilities and experienced teachers.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Academics</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Admission</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Balephi-2, Naubise</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +977-9843374271</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> setidevibs@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Sun-Fri: 9AM - 4PM</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2081 Shree Seti Devi Basic School, Balephi-2, Naubise. All Rights Reserved.
+        </div>
+    </footer>
+    
+    <script>
+        function toggleDropdown() {
+            const content = document.getElementById('dropdown-content');
+            const arrow = document.getElementById('dropdown-arrow');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                arrow.innerHTML = '▼';
+            } else {
+                content.style.display = 'block';
+                arrow.innerHTML = '▲';
+            }
+        }
+        
+        // Form submission handling
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Admission form submitted successfully! We will contact you soon.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
